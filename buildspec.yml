@@ -9,6 +9,7 @@ phases:
       - npm install
   build:
     commands:
+      - echo "building my application"
       - npm run build
 artifacts:
   base-directory: application-code/web-tier
