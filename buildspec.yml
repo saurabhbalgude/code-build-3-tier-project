@@ -11,6 +11,7 @@ phases:
     commands:
       - npm run build
 artifacts:
+  base-directory: application-code/web-tier
   files:
     - appspec.yml
     - scripts/*
