@@ -1,11 +1,13 @@
 version: 0.0
 os: linux
 files:
-  # Copy the build folder from artifact to /var/www/react-app on EC2
   - source: build
     destination: /var/www/react-app
-
 hooks:
+  BeforeInstall:
+    - location: scripts/before_install.sh
+      timeout: 300
+      runas: ubuntu
   AfterInstall:
     - location: scripts/after_install.sh
       timeout: 300
