@@ -13,6 +13,6 @@ phases:
 artifacts:
   base-directory: application-code/web-tier
   files:
-    - appspec.yml
-    - scripts/*
     - build/**/*
+    - ../../appspec.yml
+    - ../../scripts/*
