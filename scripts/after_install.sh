@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# Clear old web files
-sudo rm -rf /var/www/html/*
+echo "Linking custom nginx config..."
+sudo ln -sf /etc/nginx/sites-available/react-backend /etc/nginx/sites-enabled/react-backend
 
-# Copy new React build files from deployment directory
-sudo cp -r /var/www/react-app/* /var/www/html/
+# Optional: Remove default config if needed
+sudo rm -f /etc/nginx/sites-enabled/default
 
-# Set proper permissions
-sudo chown -R www-data:www-data /var/www/html
-sudo chmod -R 755 /var/www/html
+echo "Testing nginx config..."
+sudo nginx -t
 
-echo "React build files copied to /var/www/html"
+echo "Reloading nginx..."
+sudo systemctl reload nginx
