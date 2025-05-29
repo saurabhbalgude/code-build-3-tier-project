@@ -14,7 +14,7 @@ FROM nginx:stable-alpine
 RUN rm /etc/nginx/conf.d/default.conf
 
 # Copy our custom config
-COPY default.conf /etc/nginx/conf.d/
+COPY nginx.conf /etc/nginx/conf.d/
 
 # Copy build output to NGINX web root
 COPY --from=builder /app/build /usr/share/nginx/html
