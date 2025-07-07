@@ -7,21 +7,12 @@ phases:
     commands:
       - echo Installing frontend dependencies...
       - cd application-code/web-tier
-      - npm install
-      - cd ../../application-code/backend-tier
-      - echo Installing backend dependencies...
-      - npm install
+      - install docker
 
   build:
     commands:
       - echo Building frontend...
       - cd ../../application-code/web-tier
-      - npm run build
-      - echo Build complete.
+      - docker build -t web-tier .
 
-artifacts:
-  files:
-    - appspec.yml
-    - scripts/*
-    - application-code/web-tier/build//*
-    - application-code/backend-tier//*
+
