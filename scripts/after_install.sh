@@ -1,13 +1,7 @@
 #!/bin/bash
 
-echo "Linking custom nginx config..."
-sudo ln -sf /etc/nginx/sites-available/react-backend /etc/nginx/sites-enabled/react-backend
+sudo docker build -t web .
+sudo docker run -it -d -p 81:80 web
 
-# Optional: Remove default config if needed
-sudo rm -f /etc/nginx/sites-enabled/default
-
-echo "Testing nginx config..."
-sudo nginx -t
-
-echo "Reloading nginx..."
-sudo systemctl reload nginx
+sudo docker build -t app .
+sudo docker run -it -d -p 4000:4000 app
