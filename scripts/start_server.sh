@@ -1,5 +1,4 @@
-  #!/bin/bash
-pm2 start index.js
-pm2 startup
-pm2 save
-sudo systemctl restart nginx
+#!/bin/bash
+echo "Starting backend server..."
+cd /home/ubuntu/backend
+npm start &
